@@ -40,3 +40,8 @@ của mảng đó để tính số phần tử. VD: sizeof(A)/sizeof(int)
 - Compile code
 - Check port: Tools -> Port -> select COM8
 - Nạp code
+- Error port permission:
+```
+sudo chmod a+rw /dev/ttyUSB0
+```
+
