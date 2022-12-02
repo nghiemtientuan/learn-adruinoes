@@ -45,3 +45,7 @@ của mảng đó để tính số phần tử. VD: sizeof(A)/sizeof(int)
 sudo chmod a+rw /dev/ttyUSB0
 ```
 
+# 6. Giá trị
+INPUT_PULLUP: Đầu vào có gắn thêm điện trở mặc định
+INPUT: Thông tin vào
+OUTPUT: Truyền ra
