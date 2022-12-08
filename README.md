@@ -49,3 +49,8 @@ sudo chmod a+rw /dev/ttyUSB0
 INPUT_PULLUP: Đầu vào có gắn thêm điện trở mặc định
 INPUT: Thông tin vào
 OUTPUT: Truyền ra
+
+# 7. Matrix led
+[Doc](https://wiki.keyestudio.com/Ks0428_keyestudio_Mini_Tank_Robot_V2#Project_9:_LED_Expression_Panel)
+[dotmatrixtool](http://dotmatrixtool.com/#)
+- led matrix 16*8
