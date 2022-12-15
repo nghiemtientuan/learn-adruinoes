@@ -1,6 +1,5 @@
 #define servoPin 9  // servo Pin
 int pos; // angle variable of servo
-int pulsewidth; // pulse width variable of servo
 
 void setup() {
   pinMode(servoPin, OUTPUT);  // set servo pin to OUTPUT
@@ -20,7 +19,8 @@ void loop() {
 
 // function to control servo
 void controlServo(int myAngle) {
-  pulseWidth = myAngle * 11 + 500;  // calculate the value of pulse width
+  // pulse width variable of servo
+  int pulseWidth = myAngle * 11 + 500;  // calculate the value of pulse width
   digitalWrite(servoPin, HIGH);
   delayMicroseconds(pulseWidth);   // The duration of high level is pulse width
   digitalWrite(servoPin, LOW);
