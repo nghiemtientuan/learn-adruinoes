@@ -20,14 +20,13 @@ void loop() {
 void matrix_display(unsigned char matrix_value[]) {
   IIC_start();  // use the function of the data transmission start condition
   IIC_send(0xc0);  // select address
-  
-  for(int i = 0; i < 16; i++) { // pattern data has 16 bits
+  for (int i = 0; i < 16; i++) { // pattern data has 16 bits
      IIC_send(matrix_value[i]); // convey the pattern data
   }
-
-  IIC_end();   //end the transmission of pattern data  
+  IIC_end();   // end the transmission of pattern data
+  
   IIC_start();
-  IIC_send(0x8A);  //display control, set pulse width to 4/16 s
+  IIC_send(0x8A);  // display control, set pulse width to 4/16 s
   IIC_end();
 }
 
@@ -41,7 +40,7 @@ void IIC_start() {
   delayMicroseconds(3);
 }
 
-//Convey data
+// Convey data
 void IIC_send(unsigned char send_data) {
   for (char i = 0; i < 8; i++) {  // Each byte has 8 bits 8bit for every character
       digitalWrite(SCL_Pin, LOW);  // pull down clock pin SCL_Pin to change the signal of SDA
