@@ -54,3 +54,46 @@ OUTPUT: Truyền ra
 [Doc](https://wiki.keyestudio.com/Ks0428_keyestudio_Mini_Tank_Robot_V2#Project_9:_LED_Expression_Panel)
 [dotmatrixtool](http://dotmatrixtool.com/#)
 - led matrix 16*8
+
+# 8. millis and micros
+Millis() có nhiệm vụ trả về một số – là thời gian (tính theo mili giây) kể từ lúc mạch Arduino bắt đầu chương trình 
+của bạn. Nó sẽ tràn số và quay số 0 (sau đó tiếp tục tăng) sau 50 ngày.
+
+Lưu ý quan trọng về hàm thời gian millis():
+
+Các hàm về thời gian trong Arduino gồm millis() và micros() sẽ bị tràn số sau 1 thời gian sử dụng. Với hàm millis() 
+là khoảng 50 ngày. Tuy nhiên, do là kiểu số nguyên không âm (unsigned long) nên ta dễ dàng khắc phục điều này bằng 
+cách sử dụng hình thức ép kiểu.
+```
+unsigned long time;
+byte ledPin = 10;
+void setup()
+{
+    // khởi tạo giá trị biến time là giá trị hiện tại
+    // của hàm millis();
+    time = millis();
+    pinMode(ledPin, OUTPUT);
+    digitalWrite(ledPin, LOW);
+}
+void loop() 
+{
+    // Lưu ý các dấu ngoặc khi ép kiểu
+    // đoạn chương trình này có nghĩa là sau mỗi 1000 mili giây
+    // đèn Led ở chân số 10 sẽ thay đổi trạng thái
+    if ( (unsigned long) (millis() - time) > 1000)
+    {
+            // Thay đổi trạng thái đèn led
+        if (digitalRead(ledPin) == LOW)
+        {
+            digitalWrite(ledPin, HIGH);
+        } else {
+            digitalWrite(ledPin, LOW);
+        }
+        
+        // cập nhật lại biến time
+        time = millis();
+    }
+}
+```
+Thông thường, nếu ta có 2 số A, B và B lớn hơn A ( B > A) thì phép trừ thu được A-B là một số âm. Nhưng khi ép kiểu 
+unsigned long là kiểu số nguyên dương, không có số âm nên giá trị trả về là 1 số nguyên dương lớn.
