@@ -97,3 +97,6 @@ void loop()
 ```
 Thông thường, nếu ta có 2 số A, B và B lớn hơn A ( B > A) thì phép trừ thu được A-B là một số âm. Nhưng khi ép kiểu 
 unsigned long là kiểu số nguyên dương, không có số âm nên giá trị trả về là 1 số nguyên dương lớn.
+
+# 9. ir reception
+Library download: [here](https://www.dropbox.com/sh/yfip8hquyfmi54m/AABiWhMX0TiZnUiSaz4hs9-Ka/3.%20Tutorial%20-Arduino/2.%20Libraries?dl=0&preview=IRremoteTank.zip&subfolder_nav_tracking=1)
